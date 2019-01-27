@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%
+% This is an example CV created using altacv.cls (v1.1, 21 November 2016) written by
+% LianTze Lim (liantze@gmail.com), based on the 
+% Cv created by BusinessInsider at http://www.businessinsider.my/a-sample-resume-for-marissa-mayer-2016-7/?r=US&IR=T
+% 
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you want to use \orcid or the
+%% academicons icons, add "academicons"
+%% to the \documentclass options. 
+%% Then compile with XeLaTeX or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+\documentclass[10pt,a4paper]{altacv}
+\title{CV eng}
+%% AltaCV uses the fontawesome and academicon fonts
+%% and packages. 
+%% See texdoc.net/pkg/fontawecome and http://texdoc.net/pkg/academicons for full list of symbols.
+%% When using the "academicons" option,
+%% Compile with LuaLaTeX for best results. If you
+%% want to use XeLaTeX, you may need to install
+%% Academicons.ttf in your operating system's font %% folder.
+
+
+% Change the page layout if you need to
+\geometry{left=1cm,right=9cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=1cm,bottom=1cm}
+
+% Change the font if you want to.
+
+% If using pdflatex:
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{hyperref}
+\hypersetup{colorlinks,urlcolor=blue}
+
+% If using xelatex or lualatex:
+% \setmainfont{Lato}
+
+% Change the colours if you want to
+\definecolor{VividPurple}{HTML}{D35400}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{444444}
+\definecolor{myblue}{HTML}{111111}
+\colorlet{heading}{VividPurple}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% hack into hyperref
+\makeatletter
+\DeclareUrlCommand\ULurl@@{%
+  \def\UrlFont{\ttfamily\color{purple}}%
+  \def\UrlLeft{\uline\bgroup}%
+  \def\UrlRight{\egroup}}
+\def\ULurl@#1{\hyper@linkurl{\ULurl@@{#1}}{#1}}
+\DeclareRobustCommand*\ULurl{\hyper@normalise\ULurl@}
+\makeatother
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\usetikzlibrary{arrows}
+\usepackage{tikz}
+\newcommand{\grade}[1]{%
+\begin{tikzpicture}
+\clip (1em-.3em,-.3em) rectangle (5em +.5em ,.3em);
+\begin{scope}
+\clip (1em-.3em,-.3em) rectangle (#1em +.5em ,.3em);
+\foreach \x in {1,2,...,5}{
+ \path[fill=VividPurple] (\x em,0) circle (.25em);
+}
+\end{scope}
+\foreach \x in {1,2,...,5}{
+ \draw (\x em,0) circle (.25em);
+}
+\end{tikzpicture}%
+}
+
+\begin{document}
+\name{Doga Poyraz TAHAN}
+  \tagline{Industrial Engineer \& Computer Science Student  - 3+ years of working experience}
+% Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
+\photo{2.5cm}{me}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \email{doga.tahan@student.lut.fi}
+  \email{d.poyraztahan@gmail.com}
+  % \mailaddress{Kustepe Mah. Yoncali Sok. No:9 Kat:4 Sisli/Istanbul}
+  \phone{+358 465955339}
+ 
+  \location{Lappeenranta, Finland}
+  %\homepage{grantalexandermorgan.github.io/}
+  \href{https://www.linkedin.com/in/poyraztahan/}{\linkedin{linkedin.com/in/poyraztahan}} 
+  \printinfo{skype}{doga tahan}
+  \href{https://github.com/PoyrazTahan}{\github{github.com/PoyrazTahan}}  % I'm just making this up though.
+ % \aiOrcid{orcid.org/0000-0000-0000-0000}
+ % Obviously making this up too. If you want to use this field (and also other academicons symbols), add "academicons" option to \documentclass{altacv}
+}
+
+%% Make the header extend all the way to the right, if you want. Extend the right margin by 8cm (=6.8cm marginparwidth + 1.2cm marginparsep)
+\begin{adjustwidth}{}{-8cm}
+\makecvheader
+\end{adjustwidth}
+
+%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% You can always just use \marginpar{...} if you do
+%% not need to align the top of the contents to any
+%% \cvsection title in the "main" bar.
+
+
+\cvsection[page1sidebar]{Education}
+\cvevent{B.B.A.\ in Business Management}{Lappeenranta university of technology}   {Jan 19-- Jun 19 \hspace{20pt}-exchange-}{Lappeenranta\hspace{10pt}-Master level courses-}
+{
+Business Intelligence / Data Analytics / Financial Valuation : \hfill\cvtag{enrolled}
+}\divider\divider
+\cvevent{B.Sc.\ in Industrial Engineer}{MEF University \hspace{82pt} GPA:3,55/4}{Fall 15-- Class of 2020}   {Istanbul}
+{
+Information Sys. / Modeling \& Optimization / Statistics I \& II :  \hfill\cvtag{A/A/A/A}
+}
+\divider\divider
+\cvevent{MINOR\ in Computer Science }{MEF University \hspace{82pt} GPA: 3,91/4}{Fall 17 -- Class of 2020}{Istanbul}
+{
+Machine Learning / Object-Oriented / Database Management :\hfill \cvtag{A/A/A-} 
+}
+
+
+
+
+\cvsection[page1sidebar]{Relevant Work Experiences}
+
+\cvevent{Business Development Specialist  \hfill{\includegraphics[scale=0.2]{logoBigo.png}}}{Bigo\hspace{2pt}Technology: Biggest\hspace{2pt}Streaming\hspace{2pt}Group\hspace{2pt}in\hspace{2pt}the\hspace{2pt}world\hfill \href{https://www.bigo.sg}{\homepage{bigo.sg}}}{Jun 18 -- Nov 18}{Singapore, Egypt, MENA }
+
+\begin{itemize}
+
+\item Taken great amount of responsibility to establish the Turkish Branch - Achieved KPI's  with 1/3 of the budget
+\end{itemize}
+\textbf{Key Insight:} Focusing on the job and getting things done in a pragmatic fashion with limited resources
+\divider\divider
+\cvevent{Intern: Operations Management \hfill{\includegraphics[scale=0.2]{logoYK.png}}}{Yurtici Kargo: Largest Cargo Company in Turkey \hfill \href{https://www.yurticikargo.com/en}{\homepage{yk.com}}}{Jul 17 -- Aug 17}{Maslak, Istanbul, TR}
+\begin{itemize}
+\item Taken initiative to automate the processes - cut down man hours required significantly
+\end{itemize}
+\textbf{Key Insight:} Spotting the business bottlenecks and generating improvement ideas for more efficient process
+
+\cvevent{Teaching Assistant \hfill{\includegraphics[scale=0.2]{logoMEF.png}}}{MEF University}{Oct 16 - ongoing}{Maslak, Istanbul, TR}
+
+\cvtag{MBA - Op. Management} 
+\cvtag{Modeling \& Optimization}
+\cvtag{Discrete Math}
+\cvtag{Statistics II}
+\cvtag{Business Management 101} \textbf{...}
+
+\textbf{Responsibilities:} Academic Excellence, Lecturing, Evaluating 
+
+\textbf{Key Insight:} Conveying complex information in a practical and rigorous manner to non-experts
+
+
+
+
+
+
+
+
+
+
+\clearpage
+%\cvsection[page2sidebar]{Relevant Work Experiences}
+
+
+
+
+
+% \cvsection{A Day of My Life}
+
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+%\wheelchart{outer radius}{inner radius}{comma-separated list of value/text width/color/detail}
+
+
+
+\clearpage
+
+
+\end{document}
